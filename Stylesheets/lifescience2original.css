@@ -1,0 +1,87 @@
+/* Main Content */
+
+body {
+    max-width: 1100px; 
+}
+
+.main-section {
+    border: 2px solid #666; 
+    width: 100%;  
+}
+
+#general-info {
+    background-color: #4472c4; 
+    border: px solid black; 
+    color: white; 
+    margin-left: 2%; 
+    margin-top: 1%; 
+}
+
+/*Sales Data*/
+#sales-data {
+    border: 1px solid black; 
+    margin-left: 2%; 
+    margin-top: 2%; 
+}
+
+/* Pie Chart */
+
+#chartContainer {
+    height: 100px; 
+    margin-bottom: 5%; 
+    width: 100%; 
+}
+
+
+/*Related Documents*/
+#related-docs {
+    background-color: #4472c4; 
+    border: 1px solid black; 
+    color: white; 
+    margin-left: 2%; 
+    margin-top: 1%; 
+}
+
+#document-results {
+    border-left: 1px solid lightgray;
+    margin-bottom: 5%; 
+    margin-left: 2%; 
+    
+}
+
+.result-title {
+    color: #8fb6db;
+    margin-bottom: 0; 
+}
+
+.result-source {
+    color: #87b774; 
+    margin-top: -1%; 
+}
+
+/*People Search */
+
+img {
+    width: 5%
+}
+
+#key-contacts {
+    float: right; 
+    margin-right: 10%; 
+    margin-top: -10%; 
+}
+
+ul {
+    list-style: none; 
+    margin-left: 5%; 
+    margin-top: -5%; 
+}
+
+.fa {
+    margin-right: 1%; 
+}
+
+#name {
+    color: #4472c4; 
+}
+

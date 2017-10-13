@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, height=device-height" >
+	<title>Life Science</title>
+	<link rel="stylesheet" href="css/CoveoFullSearchNewDesign.css"/>
+	<link href="http://bainsight.com/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />    
+	<script src="modules/O365/adal.js"></script> 
+	<script src="js/CoveoJsSearch.js"></script>
+    <script src="js/templates/templatesNew.js"></script>   
+	
+	<script type="text/javascript" src="modules/DemoCustom/jqwidgets-ver3.8.2/scripts/jquery-1.11.1.min.js"></script>
+	 <script src="modules/DemoCustom/LifeScience/js/lifesciencedash1.js"></script> 
+	
+  <script id="SPOAuth" src="modules/O365/SPOAuth.js" data-client-id="cc95a12d-9923-4426-83ed-113293693d47"  data-tenant-url="https://baidemoenv.sharepoint.com" data-rest-uri="http://demofederator.azurewebsites.net/services/FederatorService.svc"></script> 
+   
+    <!-- Component Scripts --> 
+    
+    <!-- D3 Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" type='text/javascript'></script>
+    
+    <!-- Kendo CSS -->
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.2.621/styles/kendo.common.min.css" />
+      
+    <!-- Kendo Material Common CSS   -->
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.2.621/styles/kendo.common-material.min.css" />
+      
+    <!-- Kendo Material CSS --> 
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.min.css" />
+    
+    <!-- Kendo jQuery Script -->
+    <script src="http://kendo.cdn.telerik.com/2017.2.621/js/jquery.min.js"></script>
+    
+    <!-- Kendo JS -->
+    <script src="http://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
+    
+    <!-- Custom JS -->
+
+      <script src='modules/DemoCustom/LifeScience/js/components.js' type='text/javascript'></script>
+      
+    <script>
+        window.location.hash =  window.location.hash.replace('k=','q=');;
+    </script>
+      
+  </head>  
+  <body id="search" class="CoveoSearchInterface BAInsightCustom" data-enable-debug-info="true" data-auto-trigger-query="false" data-hide-until-first-query="false" data-enable-duplicate-filtering="true" data-enable-history="true" data-design="new">
+
+
+      
+<!-- Coveo Search Header -->
+      
+
+<div id="siteBar-zone">
+    <div  class="leftAlign"></div>
+    <div class="rightAlign">
+        <div id="userName"></div>
+      <script>
+          var authContext = new AuthenticationContext(config);
+          var user = authContext.getCachedUser().profile.name;
+          document.getElementById('userName').innerText = user;
+        </script>
+      </div>
+    </div>
+
+<!-- End of Coveo Search Header  -->
+
+<!-- Main Section -->
+      
+<div class='container'>
+    <div class='row'>
+        <div class='col-lg-4 col-md-4'>
+            <a href='http://demosmartsearch.azurewebsites.net/Trialresults.html#t=b29924a9-ec32-4c10-8892-a544b69ee121&sort=relevancy'><img class='BA_Logo' src='/modules/DemoCustom/LifeScience/Images/BA-LOGO-LIFESCIENCES.png' alt='BA Insight Logo'></a>
+        </div>
+        
+        <div class='col-lg-4 col-md-4'>
+            <h1 class='text-center'>Adverse Events</h1>
+        </div>
+    </div>
+</div>      
+<div class='main-section container'>
+    
+    <div class='row'>
+        <div class='top-section col-md-4 center block' id='component6'>
+ 
+<!--
+                <h5>Trial ID:<span id="TId" class='lighter'></span></h5>
+                <h5>Description:<span id="tDesc" class='lighter'></span></h5>
+                <h5>Compound:<span id="tCompound" class='lighter'></span></h5>
+                <h5>Start Date:<span id="tStartDate" class='lighter'></span></h5>
+                <h5>End Date:<span id="tEndDate" class='lighter'></span></h5>
+                <h5>Status:<span id="tStatus" class='lighter'></span></h5>
+				<h5>Therapeutic Area(s):<span id="tThera" class='lighter'></span></h5>
+-->
+            
+                <table>
+                    <tr>
+                        <th class='table_head'>Trial ID:</th>
+                        <td class='summary_table'><span id="TId" class='lighter'></span></td>
+                    </tr>
+                    <tr>
+                        <th class='table_head'>Descripton:</th>
+                        <td class='summary_table'><span id="tDesc" class='lighter'></span></td>
+                    </tr>
+                    <tr>
+                        <th class='table_head'>Compound:</th>
+                        <td class='summary_table'><span id="tCompound" class='lighter'></span></td>
+                    </tr>
+                    <tr>
+                        <th class='table_head'>Start Date:</th>
+                        <td class='summary_table'><span id="tStartDate" class='lighter'></span></td>
+                    </tr>
+                    <tr>
+                        <th class='table_head'>End Date:</th>
+                        <td class='summary_table'><span id="tEndDate" class='lighter'></span></td>
+                    </tr>
+                    <tr>
+                        <th class='table_head'>Status:</th>
+                        <td class='summary_table'><span id="tStatus" class='lighter'></span></td>
+                    </tr>
+                    <tr>
+                        <th class='table_head'>Therapeutic Area(s):</th>
+                        <td class='summary_table'><span id="tThera" class='lighter'></span></td>
+                    </tr>
+                </table>
+              
+
+        </div>
+    
+    <!-- left column -->
+	
+        <div class='top-section col-md-4 center-block' id="top-right">
+
+            <!-- Chart Component -->
+
+            <div id='compoundchart'></div>
+
+ 
+
+        </div>
+        
+    </div> <!-- row div -->
+        
+<!-- Kendo Grid Component -->
+    <div id='table'>
+
+        <div id="grid1"></div>
+
+    </div> 
+
+</div> <!-- end of main-section container -->
+      
+      <!-- Bootstrap CSS -->
+      
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+      
+      
+      <!-- Custom CSS -->
+
+     <link href='/modules/DemoCustom/LifeScience/CSS/lifesciencedash1.css' rel='stylesheet'/>
+		
+      
+  </body>
+</html>
